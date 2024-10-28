@@ -21,7 +21,7 @@ services:
         command: >
             sh -c "php artisan migrate --force &&
                    php artisan db:seed --force &&
-                   php-fpm"
+                   npm run dev & php-fpm"
 
     db:
         image: mysql:8.0

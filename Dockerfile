@@ -30,7 +30,7 @@ WORKDIR /var/www/html
 # Copia los archivos y ejecuta Composer y npm
 COPY . .
 RUN composer install
-RUN npm install && npm run dev
+RUN npm install
 
 # Configuración del usuario y permisos para evitar problemas de permisos con volúmenes
 RUN chown -R www-data:www-data /var/www/html && \
@@ -40,4 +40,4 @@ RUN chown -R www-data:www-data /var/www/html && \
 EXPOSE 9000
 
 # Comando para iniciar PHP-FPM
-CMD ["php-fpm"]
+CMD ["php-fpm", ]
