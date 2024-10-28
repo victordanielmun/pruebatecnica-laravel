@@ -12,10 +12,15 @@
 run
 
 npm install
+<br/>
 npm run build
+<br/>
 terminal 1
+<br/>
 composer run dev
+<br/>
 terminal 2
+<br/>
 npm run dev
 
 
