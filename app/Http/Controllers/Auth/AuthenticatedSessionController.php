@@ -31,6 +31,19 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+            // Recupera al usuario autenticado
+    $user = Auth::user();
+
+    
+    if (!$user->isactive) {
+    
+        Auth::logout();
+
+        return redirect()->route('login')->withErrors([
+            'email' => 'Tu cuenta no está activa.',
+        ]);
+    }
+
         $request->session()->regenerate();
 
         return redirect()->intended(route('dashboard', absolute: false));
